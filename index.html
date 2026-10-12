@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Super J Digital – cozy games for curious minds</title>
+<meta name="description" content="Super J Digital LLC is a small independent studio making cozy, family-friendly games like Bale Out.">
+<meta name="theme-color" content="#ffcd5e">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="48x48" href="assets/favicon-48.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Super J Digital">
+<meta property="og:description" content="Cozy little games for curious minds.">
+<meta property="og:url" content="https://superjdigital.com/">
+<meta property="og:image" content="https://superjdigital.com/assets/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+@font-face {
+  font-family: "Fredoka";
+  src: url("assets/fonts/fredoka-latin.woff2") format("woff2");
+  font-weight: 400 700;
+  font-display: swap;
+}
+
+:root {
+  --ink: #103a4a;
+  --paper: #fff8e7;
+  --red: #e63946;
+  --red-dark: #c8202f;
+  --yellow: #ffcd5e;
+  --blue: #1e6fd9;
+  --blue-dark: #1557b0;
+  --white: #fffefa;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: "Fredoka", "Comic Sans MS", "Chalkboard SE", system-ui, sans-serif;
+  font-size: 1.15rem;
+  line-height: 1.6;
+  color: var(--ink);
+  background-color: var(--paper);
+  /* crayon specks on paper */
+  background-image:
+    radial-gradient(rgba(30, 111, 217, .10) 1.5px, transparent 2px),
+    radial-gradient(rgba(230, 57, 70, .08) 1.5px, transparent 2px);
+  background-size: 34px 34px, 46px 46px;
+  background-position: 0 0, 17px 23px;
+}
+
+a { color: var(--blue-dark); text-decoration-thickness: 3px; text-underline-offset: 3px; }
+a:hover { color: var(--red-dark); }
+:focus-visible { outline: 4px dashed var(--red); outline-offset: 4px; border-radius: 8px; }
+
+.wrap { max-width: 980px; margin: 0 auto; padding: 0 20px; }
+
+/* ---------- hero ---------- */
+.hero { position: relative; text-align: center; padding: 48px 0 24px; overflow: hidden; }
+.hero .logo { width: min(460px, 86vw); height: auto; display: block; margin: 0 auto; position: relative; z-index: 1; }
+.tagline {
+  font-size: clamp(1.35rem, 3.2vw, 1.9rem);
+  font-weight: 600;
+  margin: 8px auto 22px;
+  max-width: 22em;
+  position: relative;
+  z-index: 1;
+}
+.tagline .hl { background: linear-gradient(transparent 58%, var(--yellow) 58%, var(--yellow) 92%, transparent 92%); padding: 0 .15em; }
+
+nav ul { list-style: none; display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; padding: 0; margin: 0; position: relative; z-index: 1; }
+nav a {
+  display: inline-block;
+  font-weight: 700;
+  text-decoration: none;
+  color: var(--ink);
+  background: var(--white);
+  border: 3px solid var(--ink);
+  border-radius: 22px 14px 24px 12px / 14px 24px 12px 22px;
+  padding: 6px 18px;
+  box-shadow: 3px 3px 0 var(--ink);
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+nav li:nth-child(1) a { background: var(--yellow); transform: rotate(-2deg); }
+nav li:nth-child(2) a { background: #cfe2ff; transform: rotate(1.5deg); }
+nav li:nth-child(3) a { background: #ffd6d9; transform: rotate(-1deg); }
+nav li:nth-child(4) a { background: var(--white); transform: rotate(2deg); }
+nav a:hover { transform: rotate(0) translateY(-3px); box-shadow: 5px 6px 0 var(--ink); color: var(--ink); }
+
+/* ---------- doodles ---------- */
+.doodle { position: absolute; z-index: 0; pointer-events: none; }
+.sun { width: 130px; top: 18px; left: max(2%, calc(50% - 470px)); animation: spin 40s linear infinite; }
+.cloud { width: 170px; top: 40px; right: max(2%, calc(50% - 470px)); animation: bob 6s ease-in-out infinite; }
+.star { width: 64px; bottom: 70px; left: max(4%, calc(50% - 400px)); animation: bob 5s ease-in-out infinite reverse; }
+.squiggle { width: 140px; bottom: 40px; right: max(4%, calc(50% - 420px)); }
+.heart { width: 46px; top: 190px; right: max(10%, calc(50% - 330px)); animation: bob 4s ease-in-out infinite; }
+@keyframes bob { 50% { transform: translateY(-10px) rotate(4deg); } }
+@keyframes spin { to { transform: rotate(360deg); } }
+@media (max-width: 700px) {
+  .sun { width: 84px; } .cloud { width: 110px; top: 20px; } .heart, .squiggle { display: none; } .star { width: 44px; bottom: 30px; }
+}
+
+/* ---------- sections ---------- */
+section { padding: 28px 0; }
+h2 {
+  font-size: clamp(1.9rem, 4.5vw, 2.6rem);
+  line-height: 1.1;
+  margin: 0 0 18px;
+  display: inline-block;
+}
+h2::after {
+  content: "";
+  display: block;
+  height: 16px;
+  margin-top: 4px;
+  background: no-repeat left center / 100% 100%;
+}
+.u-red::after { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 16' preserveAspectRatio='none'%3E%3Cpath d='M4 10 C40 2 70 15 100 8 S160 2 196 9' fill='none' stroke='%23e63946' stroke-width='6' stroke-linecap='round'/%3E%3C/svg%3E"); }
+.u-blue::after { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 16' preserveAspectRatio='none'%3E%3Cpath d='M4 9 C35 15 65 2 100 9 S165 15 196 7' fill='none' stroke='%231e6fd9' stroke-width='6' stroke-linecap='round'/%3E%3C/svg%3E"); }
+.u-yellow::after { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 16' preserveAspectRatio='none'%3E%3Cpath d='M4 8 C45 14 80 3 110 9 S170 13 196 6' fill='none' stroke='%23ffb703' stroke-width='7' stroke-linecap='round'/%3E%3C/svg%3E"); }
+
+.card {
+  background: var(--white);
+  border: 4px solid var(--ink);
+  border-radius: 30px 14px 34px 16px / 16px 32px 14px 28px;
+  padding: 26px;
+}
+.shadow-red { box-shadow: 9px 9px 0 var(--red); }
+.shadow-blue { box-shadow: 9px 9px 0 var(--blue); }
+.shadow-yellow { box-shadow: 9px 9px 0 var(--yellow); }
+.tilt-l { transform: rotate(-.6deg); }
+.tilt-r { transform: rotate(.5deg); }
+
+/* game card */
+.game { display: grid; grid-template-columns: 1.15fr 1fr; gap: 28px; align-items: center; }
+.game img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border: 4px solid var(--ink);
+  border-radius: 18px 26px 16px 24px / 24px 16px 26px 18px;
+  transform: rotate(-1.5deg);
+}
+.game h3 { font-size: 2rem; margin: 0 0 6px; line-height: 1.1; }
+.game p { margin: 0 0 16px; }
+.stores { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+
+.btn {
+  display: inline-block;
+  font-weight: 700;
+  font-size: 1.05rem;
+  text-decoration: none;
+  border: 3px solid var(--ink);
+  border-radius: 26px 16px 28px 14px / 16px 28px 14px 26px;
+  padding: 8px 18px;
+  box-shadow: 4px 4px 0 var(--ink);
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.btn-blue { background: var(--blue); color: #fff; transform: rotate(-1.5deg); }
+.btn-blue:hover { color: #fff; background: var(--blue-dark); transform: rotate(0) translateY(-3px); box-shadow: 6px 7px 0 var(--ink); }
+.btn small { display: block; font-weight: 500; font-size: .8rem; opacity: .9; line-height: 1.2; }
+.soon {
+  display: inline-block;
+  font-weight: 600;
+  font-size: .95rem;
+  background: var(--yellow);
+  border: 3px dashed var(--ink);
+  border-radius: 999px;
+  padding: 6px 14px;
+  transform: rotate(1.5deg);
+}
+.stores li:nth-child(3) .soon { transform: rotate(-1deg); }
+
+/* privacy */
+.privacy { font-size: 1.02rem; }
+.privacy h3 { font-size: 1.25rem; margin: 18px 0 4px; }
+.privacy h3:first-of-type { margin-top: 0; }
+.privacy p { margin: 0 0 8px; }
+.updated { font-size: .95rem; opacity: .8; margin-top: -6px; }
+
+/* footer */
+footer { margin-top: 40px; position: relative; color: #fff; text-align: center; }
+footer svg { display: block; width: 100%; height: 40px; }
+footer .band { background: var(--blue); padding: 18px 20px 26px; }
+footer p { margin: 4px 0; }
+footer a { color: #fff; }
+footer a:hover { color: var(--yellow); }
+
+@media (max-width: 760px) {
+  .game { grid-template-columns: 1fr; }
+  .card { padding: 20px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .doodle { animation: none !important; }
+  nav a, .btn { transition: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- Wobbly "crayon" filter for the doodles -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <filter id="crayon">
+    <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="4" result="noise"/>
+    <feDisplacementMap in="SourceGraphic" in2="noise" scale="4" xChannelSelector="R" yChannelSelector="G"/>
+  </filter>
+</svg>
+
+<header class="hero">
+  <svg class="doodle sun" viewBox="0 0 120 120" aria-hidden="true">
+    <g filter="url(#crayon)" stroke="#103a4a" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M60 8v15M60 97v15M8 60h15M97 60h15M23 23l11 11M86 86l11 11M97 23L86 34M34 86L23 97" fill="none" stroke="#ffb703"/>
+      <circle cx="60" cy="60" r="27" fill="#ffcd5e"/>
+      <path d="M49 56q4-5 7 0M64 56q4-5 7 0M49 67q11 10 22 0" fill="none"/>
+    </g>
+  </svg>
+  <svg class="doodle cloud" viewBox="0 0 170 100" aria-hidden="true">
+    <path filter="url(#crayon)" d="M34 84c-20 0-26-24-8-31-2-20 22-30 36-17 6-24 44-26 52-2 18-10 40 4 34 24 18 4 14 28-6 26z" fill="#fffefa" stroke="#103a4a" stroke-width="5" stroke-linejoin="round"/>
+    <path d="M56 66q5 5 10 0M86 66q5 5 10 0" fill="none" stroke="#103a4a" stroke-width="4" stroke-linecap="round"/>
+  </svg>
+  <svg class="doodle heart" viewBox="0 0 60 56" aria-hidden="true">
+    <path filter="url(#crayon)" d="M30 50C10 36 4 26 6 16 8 6 22 2 30 14 38 2 52 6 54 16 56 26 50 36 30 50z" fill="#1e6fd9" stroke="#103a4a" stroke-width="4" stroke-linejoin="round"/>
+  </svg>
+  <svg class="doodle star" viewBox="0 0 100 100" aria-hidden="true">
+    <path filter="url(#crayon)" d="M50 7l12 30 32 2-25 20 9 32-28-18-28 18 9-32L6 39l32-2z" fill="#e63946" stroke="#103a4a" stroke-width="5" stroke-linejoin="round"/>
+  </svg>
+  <svg class="doodle squiggle" viewBox="0 0 160 40" aria-hidden="true">
+    <path filter="url(#crayon)" d="M6 22q14-18 28 0t28 0 28 0 28 0 28 0" fill="none" stroke="#1e6fd9" stroke-width="7" stroke-linecap="round"/>
+  </svg>
+
+  <div class="wrap">
+    <h1 style="margin:0"><img class="logo" src="assets/logo.png" width="800" height="577" alt="Super J Digital"></h1>
+    <p class="tagline">We make <span class="hl">cozy little games</span> for curious minds.</p>
+    <nav aria-label="Main">
+      <ul>
+        <li><a href="#games">Games</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#privacy">Privacy</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section id="games">
+    <h2 class="u-red">Our games</h2>
+    <article class="card shadow-red tilt-l">
+      <div class="game">
+        <img src="assets/bale-out.png" width="1024" height="500" alt="The Bale Out logo next to a red barn, a dog and a pig on green grass">
+        <div>
+          <h3>Bale Out</h3>
+          <p>A relaxing puzzle game where you predict how cute barnyard animals will move. Learn their habits, change the farm around them, and find all 30 lost pigs!</p>
+          <ul class="stores">
+            <li><a class="btn btn-blue" href="https://store.steampowered.com/app/2359310/Bale_Out/">Play on Steam<small>Windows &amp; Mac</small></a></li>
+            <li><span class="soon">iPhone &amp; iPad: back soon</span></li>
+            <li><span class="soon">Android: coming soon</span></li>
+          </ul>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <section id="about">
+    <h2 class="u-blue">About us</h2>
+    <div class="card shadow-blue tilt-r">
+      <p style="margin:0">Super J Digital LLC is a small, independent game studio. We make calm, family-friendly games with hand-made art, gentle music and puzzles that make you smile.</p>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2 class="u-yellow">Say hi!</h2>
+    <div class="card shadow-yellow tilt-l">
+      <p style="margin:0">Questions, bug reports, or want to tell us about your favorite level? Email us at <a href="mailto:superjdigital@gmail.com">superjdigital@gmail.com</a>.</p>
+    </div>
+  </section>
+
+  <section id="privacy">
+    <h2 class="u-red">Privacy policy</h2>
+    <div class="card shadow-blue privacy">
+      <p class="updated">Last updated: October 11, 2026</p>
+      <h3>Our games</h3>
+      <p>Our games do not collect, store or share any personal information. They have no accounts, ads, analytics or tracking. Your progress and settings are saved only on your own device, and deleting the game deletes them.</p>
+      <h3>App stores</h3>
+      <p>When you buy or download one of our games from Steam, the App Store or Google Play, that store handles your purchase under its own privacy policy. We only see summary sales numbers, not who you are.</p>
+      <h3>This website</h3>
+      <p>This website does not use cookies or analytics. Our web host may keep basic server logs, such as IP addresses, to keep the site running and secure.</p>
+      <h3>Emails</h3>
+      <p>If you email us, we use your email address only to reply to you.</p>
+      <h3>Children</h3>
+      <p>Our games are made for all ages. Because we do not collect personal information, we do not collect any from children either.</p>
+      <h3>Changes and contact</h3>
+      <p>If this policy changes, we will update this page and the date above. Questions? Email <a href="mailto:superjdigital@gmail.com">superjdigital@gmail.com</a>.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <svg viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0 40V22C100 6 200 34 300 20S500 4 600 20 800 36 900 20 1100 6 1200 22V40z" fill="#1e6fd9"/>
+  </svg>
+  <div class="band">
+    <p>&copy; 2026 Super J Digital LLC</p>
+    <p><a href="#privacy">Privacy policy</a> · <a href="mailto:superjdigital@gmail.com">superjdigital@gmail.com</a></p>
+  </div>
+</footer>
+
+</body>
+</html>
